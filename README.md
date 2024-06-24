@@ -1,7 +1,7 @@
 # Data Structures and Algorithms
 Welcome to the Data Structures and Algorithms (DSA) repository! This repository contains my implementations of various data structures and algorithms, written in c++ language.
 
-Overview
+Overview:
 This repository is organized by different types of data structures and algorithms, with each type having its own directory. It is designed to help anyone interested in learning and practicing DSA concepts.
 
 Data Structures
