@@ -6,7 +6,7 @@
 class Solution {
 public:
     string sortSentence(string s) {
-        map<int, std::string> indexWordMap;
+        map<int, string> indexWordMap;
 
         istringstream iss(s);     // This is used to split the input string by spaces.
         string word;
