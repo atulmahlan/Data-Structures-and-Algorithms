@@ -9,13 +9,16 @@ public:
         int n = nums.size();
         int low = 0, high = n-1;
         int ans = n;
-        while (low <= high) {
+        while (low <= high) 
+        {
             int mid = (low + high)/2;
-            if (nums[mid] >= target) {
+            if (nums[mid] >= target) 
+            {
                 ans = mid;
                 high = mid-1;
             }
-            else {
+            else 
+            {
                 low = mid + 1;
             }
         }
