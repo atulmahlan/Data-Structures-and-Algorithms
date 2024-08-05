@@ -5,35 +5,41 @@
 class Solution {
 public:
     string removeDuplicateLetters(string s) {
-        vector<int> freq(26, 0);
-        vector<bool> inStack(26, false); 
-        
-        for (char c : s) 
+        vector<int> freq(26,0);
+
+        for(int i = 0 ; i < s.size() ; i++)
         {
-            freq[c - 'a']++;
+            freq[s[i] - 'a']++;
         }
-        
-        string result = "";
-        
-        for (char c : s) 
+
+        stack<char> st;
+        vector<bool> seen(26,false);
+
+        for(int i = 0 ; i < s.size() ; i++)
         {
-            freq[c - 'a']--;
-            
-            if (inStack[c - 'a']) 
+            if(seen[s[i] - 'a'])
             {
+                freq[s[i] - 'a']--;
                 continue;
             }
-            
-            while (!result.empty() && result.back() > c && freq[result.back() - 'a'] > 0) 
+            while(!st.empty() && s[i] < st.top() && freq[st.top() - 'a'] > 0)
             {
-                inStack[result.back() - 'a'] = false; 
-                result.pop_back();
+                seen[st.top() - 'a'] = false;
+                st.pop();
             }
-            
-            result.push_back(c); 
-            inStack[c - 'a'] = true; 
+            st.push(s[i]);
+            seen[s[i] - 'a'] = true;
+            freq[s[i] - 'a']--;
         }
-        
-        return result;
+
+        string ans = "";
+        while(!st.empty())
+        {
+            ans.push_back(st.top());
+            st.pop();
+        }
+
+        reverse(ans.begin(),ans.end());
+        return ans;
     }
 };
